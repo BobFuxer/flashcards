@@ -1,12 +1,12 @@
 {
-  "name": "Army Board Flashcards",
-  "short_name": "Board Cards",
-  "description": "Flashcards for Army board memorization.",
+  "name": "Army Board Flashcards 2",
+  "short_name": "Board Cards 2",
+  "description": "Mobile-first flashcards for Army board study.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#eef1ea",
-  "theme_color": "#2f6b45",
+  "background_color": "#eef2ea",
+  "theme_color": "#223c2b",
   "orientation": "portrait",
   "icons": [
     {

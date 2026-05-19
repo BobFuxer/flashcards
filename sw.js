@@ -1,4 +1,4 @@
-const CACHE_NAME = "army-board-flashcards-v12";
+const CACHE_NAME = "army-board-flashcards-2-v1";
 const APP_ASSETS = [
   "./",
   "./index.html",
@@ -10,9 +10,7 @@ const APP_ASSETS = [
 ];
 
 self.addEventListener("install", (event) => {
-  event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => cache.addAll(APP_ASSETS))
-  );
+  event.waitUntil(caches.open(CACHE_NAME).then((cache) => cache.addAll(APP_ASSETS)));
   self.skipWaiting();
 });
 

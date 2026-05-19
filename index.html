@@ -2,71 +2,72 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#2f6b45">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#223c2b">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <meta name="apple-mobile-web-app-title" content="Board Cards">
-    <title>Army Board Flashcards</title>
+    <meta name="apple-mobile-web-app-title" content="Board Cards 2">
+    <title>Board Cards 2</title>
     <link rel="manifest" href="manifest.webmanifest">
     <link rel="icon" href="icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="apple-touch-icon.svg">
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <main class="app-shell">
-      <section class="topbar" aria-label="Study controls">
+    <main class="app" aria-label="Army board flashcards">
+      <header class="app-header">
         <div>
-          <p class="eyebrow">Army Board Prep</p>
+          <p class="kicker">Army Board</p>
           <h1>Flashcards</h1>
         </div>
-        <div class="stats" aria-live="polite">
+        <div class="progress-pill" aria-live="polite">
           <span id="progressText">0 / 0</span>
-          <span id="scoreText">0 known</span>
         </div>
-      </section>
+      </header>
 
-      <section class="controls" aria-label="Deck controls">
-        <label>
-          Deck
+      <section class="toolbar" aria-label="Study setup">
+        <label class="field field-deck">
+          <span>Deck</span>
           <select id="deckSelect"></select>
         </label>
-        <label>
-          Mode
+        <label class="field field-mode">
+          <span>Mode</span>
           <select id="modeSelect">
             <option value="flashcards">Flashcards</option>
             <option value="policies">Policy numbers</option>
-            <option value="starred">Starred cards</option>
+            <option value="starred">Starred</option>
           </select>
         </label>
-        <button id="shuffleButton" type="button">Shuffle</button>
-        <button id="resetButton" type="button">Reset</button>
+        <button class="utility-button" id="shuffleButton" type="button">Shuffle</button>
+        <button class="utility-button" id="resetButton" type="button">Reset</button>
       </section>
 
-      <section class="card-stage">
-        <article class="flashcard" id="flashcard" tabindex="0" aria-label="Flashcard. Press space to flip.">
-          <div class="card-meta">
-            <span id="categoryText">Deck</span>
-            <div class="meta-right">
-              <span id="referenceText">Reference</span>
-              <button id="starButton" class="star-toggle" type="button" aria-label="Star this flashcard" aria-pressed="false">☆</button>
-            </div>
-          </div>
-          <p class="card-label" id="cardSide">Question</p>
-          <h2 id="cardText">Loading...</h2>
-          <p class="hint" id="hintText">Click the card or press Space to flip.</p>
+      <section class="stage" aria-label="Current flashcard">
+        <article class="card" id="flashcard" tabindex="0">
+          <header class="card-top">
+            <span class="card-topic" id="categoryText">Deck</span>
+            <span class="card-ref" id="referenceText">Reference</span>
+            <button class="star-button" id="starButton" type="button" aria-label="Star this card" aria-pressed="false">☆</button>
+          </header>
+
+          <p class="card-side" id="cardSide">Front</p>
+
+          <section class="card-content" aria-live="polite">
+            <p class="card-text" id="cardText">Loading...</p>
+          </section>
+
+          <p class="card-hint" id="hintText">Answer out loud, then flip.</p>
         </article>
       </section>
 
-      <section class="actions" aria-label="Answer controls">
-        <button id="backButton" type="button">Back</button>
-        <button id="againButton" type="button">Missed</button>
-        <button id="flipButton" type="button">Flip</button>
-        <button id="knownButton" type="button">Know It</button>
+      <section class="actions" aria-label="Card actions">
+        <button class="action-button missed" id="againButton" type="button">Missed</button>
+        <button class="action-button known" id="knownButton" type="button">Know It</button>
+        <button class="action-button secondary" id="backButton" type="button">Back</button>
+        <button class="action-button flip" id="flipButton" type="button">Flip</button>
       </section>
 
-      <section class="mini-panel">
-        <h2>Board Save Line</h2>
+      <section class="save-line" aria-label="Board save line">
         <p>Sergeant, I do not know the exact answer at this time, but I know it can be found in <strong id="saveLineRef">the correct publication</strong>.</p>
       </section>
     </main>
