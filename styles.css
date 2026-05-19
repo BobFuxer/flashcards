@@ -1,0 +1,254 @@
+:root {
+  color-scheme: light;
+  --bg: #eef1ea;
+  --panel: #ffffff;
+  --ink: #172018;
+  --muted: #5f6c61;
+  --line: #cbd5c7;
+  --field: #f7f8f4;
+  --green: #2f6b45;
+  --green-dark: #214d32;
+  --gold: #c58b21;
+  --red: #a33b33;
+  --shadow: 0 18px 50px rgba(23, 32, 24, 0.16);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    linear-gradient(135deg, rgba(47, 107, 69, 0.16), transparent 34%),
+    linear-gradient(315deg, rgba(197, 139, 33, 0.18), transparent 40%),
+    var(--bg);
+  color: var(--ink);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+button,
+select {
+  font: inherit;
+}
+
+.app-shell {
+  width: min(1100px, calc(100vw - 32px));
+  margin: 0 auto;
+  padding: 32px 0;
+}
+
+.topbar {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 18px;
+}
+
+.eyebrow {
+  margin: 0 0 4px;
+  color: var(--green);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 0;
+  font-size: 2.4rem;
+}
+
+.stats {
+  display: flex;
+  gap: 10px;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.controls,
+.actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto auto;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+label {
+  display: grid;
+  gap: 6px;
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+select,
+button {
+  min-height: 44px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  color: var(--ink);
+}
+
+select {
+  width: 100%;
+  padding: 0 12px;
+}
+
+button {
+  padding: 0 18px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+button:hover {
+  border-color: var(--green);
+}
+
+.card-stage {
+  display: grid;
+  place-items: center;
+  min-height: 420px;
+}
+
+.flashcard {
+  width: min(820px, 100%);
+  min-height: 360px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  outline: none;
+}
+
+.flashcard:focus {
+  border-color: var(--green);
+  box-shadow: 0 0 0 4px rgba(47, 107, 69, 0.18), var(--shadow);
+}
+
+.card-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  color: var(--muted);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.meta-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.star-toggle {
+  min-height: 0;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--gold);
+  font-size: 1.7rem;
+  line-height: 1;
+}
+
+.star-toggle:hover,
+.star-toggle:focus {
+  background: #fff7df;
+  border: 0;
+  outline: 2px solid rgba(197, 139, 33, 0.28);
+  outline-offset: 2px;
+}
+
+.card-label {
+  margin: 28px 0 8px;
+  color: var(--gold);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.flashcard h2 {
+  margin: 0;
+  font-size: 2rem;
+  line-height: 1.24;
+}
+
+.hint {
+  margin: 28px 0 0;
+  color: var(--muted);
+}
+
+.actions {
+  grid-template-columns: repeat(4, 1fr);
+  margin-top: 18px;
+}
+
+#againButton {
+  color: var(--red);
+}
+
+#flipButton {
+  background: var(--ink);
+  color: white;
+  border-color: var(--ink);
+}
+
+#knownButton {
+  background: var(--green);
+  color: white;
+  border-color: var(--green);
+}
+
+.mini-panel {
+  margin-top: 18px;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.74);
+}
+
+.mini-panel h2 {
+  margin: 0 0 8px;
+  font-size: 1rem;
+}
+
+.mini-panel p {
+  margin: 0;
+  color: var(--muted);
+}
+
+@media (max-width: 720px) {
+  .topbar {
+    align-items: start;
+    flex-direction: column;
+  }
+
+  .controls,
+  .actions {
+    grid-template-columns: 1fr;
+  }
+
+  .card-stage {
+    min-height: 360px;
+  }
+
+  .flashcard {
+    min-height: 320px;
+    padding: 22px;
+  }
+
+  .flashcard h2 {
+    font-size: 1.45rem;
+  }
+}
