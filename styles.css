@@ -311,16 +311,20 @@ button:hover {
   .card-stage {
     min-height: 0;
     align-self: start;
+    display: grid;
+    place-items: center;
+    padding-top: 4px;
   }
 
   .flashcard {
     width: 100%;
-    min-height: 210px;
-    max-height: min(420px, calc(100svh - 178px));
+    height: clamp(230px, 42svh, 315px);
+    min-height: 230px;
+    max-height: 315px;
     display: grid;
-    grid-template-rows: auto auto minmax(84px, auto) auto;
-    gap: 8px;
-    padding: 14px;
+    grid-template-rows: auto auto minmax(0, 1fr) auto;
+    gap: 10px;
+    padding: 15px;
     border-color: rgba(203, 213, 199, 0.92);
     box-shadow: 0 8px 22px rgba(23, 32, 24, 0.12);
   }
@@ -363,10 +367,11 @@ button:hover {
 
   .flashcard h2 {
     align-self: center;
-    max-height: min(230px, calc(100svh - 300px));
+    max-height: 100%;
     overflow: auto;
     font-size: clamp(1.05rem, 5.1vw, 1.45rem);
     line-height: 1.22;
+    text-align: center;
     -webkit-overflow-scrolling: touch;
   }
 
@@ -374,6 +379,7 @@ button:hover {
     margin: 0;
     font-size: 0.72rem;
     line-height: 1.25;
+    text-align: center;
   }
 
   .actions {

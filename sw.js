@@ -1,4 +1,4 @@
-const CACHE_NAME = "army-board-flashcards-v3";
+const CACHE_NAME = "army-board-flashcards-v4";
 const APP_ASSETS = [
   "./",
   "./index.html",
