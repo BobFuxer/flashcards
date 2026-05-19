@@ -229,26 +229,140 @@ button:hover {
 }
 
 @media (max-width: 720px) {
-  .topbar {
-    align-items: start;
-    flex-direction: column;
+  html,
+  body {
+    height: 100%;
+    overflow: hidden;
   }
 
-  .controls,
-  .actions {
-    grid-template-columns: 1fr;
+  body {
+    min-height: 100svh;
+    background:
+      linear-gradient(135deg, rgba(47, 107, 69, 0.12), transparent 42%),
+      var(--bg);
+  }
+
+  .app-shell {
+    width: 100%;
+    height: 100svh;
+    display: grid;
+    grid-template-rows: auto auto minmax(0, 1fr) auto;
+    gap: 10px;
+    padding: 12px;
+  }
+
+  .topbar {
+    align-items: center;
+    flex-direction: row;
+    gap: 10px;
+    margin-bottom: 0;
+  }
+
+  .eyebrow {
+    font-size: 0.66rem;
+    margin-bottom: 1px;
+  }
+
+  h1 {
+    font-size: 1.55rem;
+  }
+
+  .stats {
+    margin-left: auto;
+    flex-direction: column;
+    gap: 1px;
+    text-align: right;
+    font-size: 0.78rem;
+  }
+
+  .controls {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-bottom: 0;
+  }
+
+  .controls button {
+    min-height: 36px;
+    padding: 0 10px;
+  }
+
+  label {
+    gap: 3px;
+    font-size: 0.66rem;
+  }
+
+  select {
+    min-height: 38px;
+    padding: 0 8px;
+    font-size: 0.86rem;
   }
 
   .card-stage {
-    min-height: 360px;
+    min-height: 0;
+    align-self: stretch;
   }
 
   .flashcard {
-    min-height: 320px;
-    padding: 22px;
+    width: 100%;
+    min-height: 0;
+    height: 100%;
+    padding: 16px;
+    box-shadow: 0 10px 28px rgba(23, 32, 24, 0.14);
+  }
+
+  .card-meta {
+    gap: 8px;
+    font-size: 0.72rem;
+  }
+
+  .meta-right {
+    gap: 6px;
+  }
+
+  #referenceText {
+    max-width: 120px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .star-toggle {
+    width: 30px;
+    height: 30px;
+    font-size: 1.45rem;
+  }
+
+  .card-label {
+    margin: 10px 0 6px;
+    font-size: 0.68rem;
   }
 
   .flashcard h2 {
-    font-size: 1.45rem;
+    max-height: calc(100svh - 330px);
+    overflow: auto;
+    font-size: 1.18rem;
+    line-height: 1.25;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .hint {
+    margin-top: 10px;
+    font-size: 0.78rem;
+  }
+
+  .actions {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 8px;
+    margin: 0;
+  }
+
+  .actions button {
+    min-height: 40px;
+    padding: 0 6px;
+    font-size: 0.84rem;
+  }
+
+  .mini-panel {
+    display: none;
   }
 }
